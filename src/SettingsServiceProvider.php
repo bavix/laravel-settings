@@ -2,6 +2,7 @@
 
 namespace Bavix\Settings;
 
+use Bavix\Settings\Services\ReadableService;
 use Illuminate\Support\ServiceProvider;
 
 class SettingsServiceProvider extends ServiceProvider
@@ -43,6 +44,8 @@ class SettingsServiceProvider extends ServiceProvider
             dirname(__DIR__) . '/config/config.php',
             'settings'
         );
+
+        $this->app->singleton(ReadableService::class, config('settings.services.readable'));
     }
 
 }
