@@ -1,0 +1,53 @@
+{
+  "name": "bavix/laravel-settings",
+  "description": "Addition to the package laravel-wallet.",
+  "keywords": [
+    "settings",
+    "laravel",
+    "laravel5",
+    "user-settings",
+    "setting",
+    "config",
+    "laravel5-package",
+    "cfg",
+    "configure"
+  ],
+  "minimum-stability": "stable",
+  "homepage": "https://github.com/bavix/laravel-settings",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Babichev Maxim",
+      "email": "info@babichev.net"
+    }
+  ],
+  "require": {
+    "php": "^7.1",
+    "illuminate/database": "^5.5|^6.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^3.7",
+    "phpstan/phpstan": "^0.11",
+    "phpunit/phpunit": "^7.5|^8.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bavix\\Settings\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Bavix\\Settings\\Test\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Bavix\\Settings\\SettingsServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
+}
