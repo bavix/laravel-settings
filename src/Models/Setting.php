@@ -29,6 +29,26 @@ class Setting extends Model
     ];
 
     /**
+     * @return \Illuminate\Config\Repository|mixed|string
+     */
+    public function getTable()
+    {
+        if (!$this->table) {
+            $this->table = config('settings.table');
+        }
+
+        return parent::getTable();
+    }
+
+    /**
+     * @return MorphTo
+     */
+    public function model(): MorphTo
+    {
+        return $this->morphTo();
+    }
+
+    /**
      * @param string $key
      * @return string
      */
@@ -39,14 +59,6 @@ class Setting extends Model
         }
 
         return parent::getCastType($key);
-    }
-
-    /**
-     * @return MorphTo
-     */
-    public function model(): MorphTo
-    {
-        return $this->morphTo();
     }
 
 }
