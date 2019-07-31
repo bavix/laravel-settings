@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits;
+namespace Bavix\Settings\Traits;
 
 use Bavix\Settings\Models\Setting;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
