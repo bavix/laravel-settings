@@ -27,6 +27,8 @@ class SimpleTest extends TestCase
         $this->assertEquals($setting->key, 'color');
         $this->assertEquals($setting->cast, 'string');
         $this->assertEquals($setting->value, '#fdf400');
+        $this->assertInstanceOf(User::class, $setting->model);
+        $this->assertEquals($user->id, $setting->model_id);
     }
 
     /**
@@ -48,6 +50,8 @@ class SimpleTest extends TestCase
         $this->assertEquals($setting->key, 'counter');
         $this->assertEquals($setting->cast, 'int');
         $this->assertEquals($setting->value, 42);
+        $this->assertInstanceOf(User::class, $setting->model);
+        $this->assertEquals($user->id, $setting->model_id);
     }
 
     /**
@@ -69,6 +73,8 @@ class SimpleTest extends TestCase
         $this->assertEquals($setting->key, 'enabled');
         $this->assertEquals($setting->cast, 'bool');
         $this->assertEquals($setting->value, true);
+        $this->assertInstanceOf(User::class, $setting->model);
+        $this->assertEquals($user->id, $setting->model_id);
     }
 
     /**
@@ -99,6 +105,8 @@ class SimpleTest extends TestCase
         $this->assertEquals($setting->cast, 'array');
         $this->assertIsArray($setting->value);
         $this->assertEqualsCanonicalizing($array, $setting->value);
+        $this->assertInstanceOf(User::class, $setting->model);
+        $this->assertEquals($user->id, $setting->model_id);
     }
 
 }
