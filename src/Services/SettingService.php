@@ -35,4 +35,33 @@ class SettingService
         return $setting;
     }
 
+    /**
+     * @param Model $model
+     * @param string $key
+     * @return bool
+     * @throws
+     */
+    public function delete(Model $model, string $key): bool
+    {
+        $setting = app(ReadableService::class)
+            ->getSetting($model, $key);
+
+        if ($setting) {
+            /**
+             * @var Collection $collection
+             */
+            $collection = $model->settings;
+            foreach ($collection as $index => $item) {
+                if ($item === $setting) {
+                    $collection->forget($index);
+                    break;
+                }
+            }
+
+            return $setting->delete();
+        }
+
+        return false;
+    }
+
 }

@@ -4,6 +4,7 @@ namespace Bavix\Settings\Test;
 
 use Bavix\Settings\Models\Setting;
 use Bavix\Settings\Services\ReadableService;
+use Bavix\Settings\Services\SettingService;
 use Bavix\Settings\Test\Models\User;
 use Carbon\Carbon;
 
@@ -34,6 +35,12 @@ class ModelWritableTest extends TestCase
         $this->assertEquals($carbon->toString(), $setting->value->toString());
         $this->assertInstanceOf(User::class, $setting->model);
         $this->assertEquals($user->id, $setting->model_id);
+
+        // cleanup
+        $this->assertTrue(app(SettingService::class)->delete($user, 'val'));
+        $this->assertNull($user->getSetting('val'));
+
+        $this->assertFalse(app(SettingService::class)->delete($user, 'val'));
     }
 
     /**
