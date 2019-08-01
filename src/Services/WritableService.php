@@ -77,15 +77,8 @@ class WritableService
             ->getSetting($model, $key);
 
         if (!$setting) {
-            $setting = app(SettingService::class)
+            return app(SettingService::class)
                 ->create($model, $key, $cast, $value);
-
-            /**
-             * @var Collection $collection
-             */
-            $collection = $model->settings;
-            $collection->push($setting);
-            return $setting;
         }
 
         $setting->update(compact('cast', 'value'));
