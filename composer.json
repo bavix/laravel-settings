@@ -1,6 +1,6 @@
 {
   "name": "bavix/laravel-settings",
-  "description": "Addition to the package laravel-wallet.",
+  "description": "Keep user settings easy.",
   "keywords": [
     "settings",
     "laravel",

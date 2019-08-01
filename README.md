@@ -9,7 +9,7 @@
 [![License](https://poser.pugx.org/bavix/laravel-settings/license)](https://packagist.org/packages/bavix/laravel-settings)
 [![composer.lock](https://poser.pugx.org/bavix/laravel-settings/composerlock)](https://packagist.org/packages/bavix/laravel-settings)
 
-laravel-settings - Addition to the package laravel-wallet.
+laravel-settings - Keep user settings easy.
 
 * **Vendor**: bavix
 * **Package**: laravel-settings
