@@ -4,8 +4,8 @@ namespace Bavix\Settings\Test;
 
 use Bavix\Settings\Models\Setting;
 use Bavix\Settings\Services\ReadableService;
-use Bavix\Settings\Services\WritableService;
 use Bavix\Settings\Test\Models\User;
+use Carbon\Carbon;
 
 class ModelWritableTest extends TestCase
 {
@@ -15,11 +15,13 @@ class ModelWritableTest extends TestCase
      */
     public function testSetting(): void
     {
+        $carbon = now();
+
         /**
          * @var User $user
          */
         $user = factory(User::class)->create();
-        $user->setSettingInt('val', 123);
+        $user->setSetting('val', 'datetime', $carbon);
 
         $setting = app(ReadableService::class)
             ->getSetting($user, 'val');
@@ -27,9 +29,9 @@ class ModelWritableTest extends TestCase
         $this->assertNotNull($setting);
         $this->assertInstanceOf(Setting::class, $setting);
         $this->assertEquals($setting->key, 'val');
-        $this->assertEquals($setting->cast, 'int');
-        $this->assertIsInt($setting->value);
-        $this->assertEquals(123, $setting->value);
+        $this->assertEquals($setting->cast, 'datetime');
+        $this->assertInstanceOf(Carbon::class, $setting->value);
+        $this->assertEquals($carbon->toString(), $setting->value->toString());
         $this->assertInstanceOf(User::class, $setting->model);
         $this->assertEquals($user->id, $setting->model_id);
     }
