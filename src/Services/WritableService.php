@@ -3,7 +3,6 @@
 namespace Bavix\Settings\Services;
 
 use Bavix\Settings\Models\Setting;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class WritableService
