@@ -3,7 +3,7 @@
 namespace Bavix\Settings\Services;
 
 use Bavix\Settings\Models\Setting;
-use Bavix\Settings\Traits\HasSettings;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class WritableService
@@ -76,12 +76,16 @@ class WritableService
         $setting = app(ReadableService::class)
             ->getSetting($model, $key);
 
-        // refresh
-        $model->unsetRelation('settings');
-
         if (!$setting) {
-            return app(SettingService::class)
+            $setting = app(SettingService::class)
                 ->create($model, $key, $cast, $value);
+
+            /**
+             * @var Collection $collection
+             */
+            $collection = $model->settings;
+            $collection->push($setting);
+            return $setting;
         }
 
         $setting->update(compact('cast', 'value'));
