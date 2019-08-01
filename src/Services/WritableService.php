@@ -70,7 +70,7 @@ class WritableService
      * @param mixed $value
      * @return Setting
      */
-    protected function setSetting(Model $model, string $key, string $cast, $value): Setting
+    public function setSetting(Model $model, string $key, string $cast, $value): Setting
     {
         $setting = app(ReadableService::class)
             ->getSetting($model, $key);
