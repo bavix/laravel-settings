@@ -46,7 +46,7 @@ Let's save the settings.
 
 ```php
 (bool)$user->setSettingBool('notify', false); // bool(true)
-$user->getSettingBool('notify', false); // bool(true)
+$user->getSettingBool('notify', false); // bool(false)
 ```
 
 ---
