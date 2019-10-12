@@ -5,6 +5,13 @@ namespace Bavix\Settings\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
+/**
+ * Class Setting
+ * @package Bavix\Settings\Models
+ * @property string $key
+ * @property string $cast
+ * @property mixed $value
+ */
 class Setting extends Model
 {
 
