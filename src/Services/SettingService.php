@@ -5,7 +5,7 @@ namespace Bavix\Settings\Services;
 use Bavix\Settings\Models\Setting;
 use Bavix\Settings\Traits\HasSettings;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
+use Bavix\Settings\Interfaces\Settingable as Model;
 
 class SettingService
 {
@@ -47,13 +47,9 @@ class SettingService
             ->getSetting($model, $key);
 
         if ($setting) {
-            /**
-             * @var Collection $collection
-             */
-            $collection = $model->settings;
-            foreach ($collection as $index => $item) {
+            foreach ($model->settings as $index => $item) {
                 if ($item === $setting) {
-                    $collection->forget($index);
+                    $model->settings->forget($index);
                     break;
                 }
             }

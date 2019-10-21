@@ -11,7 +11,7 @@ trait HasSetSettings
     /**
      * @param string $key
      * @param int|null $value
-     * @return int|null
+     * @return Setting
      */
     public function setSettingInt(string $key, ?int $value = null): Setting
     {
@@ -22,7 +22,7 @@ trait HasSetSettings
     /**
      * @param string $key
      * @param float|null $value
-     * @return float|null
+     * @return Setting
      */
     public function setSettingFloat(string $key, ?float $value = null): Setting
     {
@@ -33,7 +33,7 @@ trait HasSetSettings
     /**
      * @param string $key
      * @param bool|null $value
-     * @return bool|null
+     * @return Setting
      */
     public function setSettingBool(string $key, ?bool $value = null): Setting
     {
@@ -44,7 +44,7 @@ trait HasSetSettings
     /**
      * @param string $key
      * @param string|null $value
-     * @return string|null
+     * @return Setting
      */
     public function setSettingString(string $key, ?string $value = null): Setting
     {
@@ -55,7 +55,7 @@ trait HasSetSettings
     /**
      * @param string $key
      * @param array|null $value
-     * @return array|null
+     * @return Setting
      */
     public function setSettingArray(string $key, ?array $value = null): Setting
     {
@@ -67,7 +67,7 @@ trait HasSetSettings
      * @param string $key
      * @param string $cast
      * @param mixed $value
-     * @return Setting|null
+     * @return Setting
      */
     public function setSetting(string $key, string $cast, $value): Setting
     {
