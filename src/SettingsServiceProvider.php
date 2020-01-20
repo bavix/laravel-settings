@@ -22,7 +22,7 @@ class SettingsServiceProvider extends ServiceProvider
 
         if (function_exists('config_path')) {
             $this->publishes([
-                dirname(__DIR__) . '/config/config.php' => config_path('wallet.php'),
+                dirname(__DIR__) . '/config/config.php' => config_path('bavix-settings.php'),
             ], 'laravel-settings-config');
         }
 
@@ -42,7 +42,7 @@ class SettingsServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(
             dirname(__DIR__) . '/config/config.php',
-            'settings'
+            'bavix-settings'
         );
 
         $this->app->singleton(ReadableService::class, config('settings.services.readable'));
