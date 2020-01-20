@@ -14,7 +14,7 @@ class CreateSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create(config('settings.table'), function (Blueprint $table) {
+        Schema::create(config('bavix-settings.table'), function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->morphs('model');
             $table->string('key', 50);
@@ -31,7 +31,7 @@ class CreateSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(config('settings.table'));
+        Schema::dropIfExists(config('bavix-settings.table'));
     }
 
 }
