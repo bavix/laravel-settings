@@ -45,7 +45,7 @@ class SettingsServiceProvider extends ServiceProvider
             'bavix-settings'
         );
 
-        $this->app->singleton(ReadableService::class, config('settings.services.readable'));
+        $this->app->singleton(ReadableService::class, config('bavix-settings.services.readable'));
     }
 
 }
