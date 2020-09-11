@@ -16,7 +16,7 @@ laravel-settings - Keep user settings easy.
 * **Package**: laravel-settings
 * **Version**: [![Latest Stable Version](https://poser.pugx.org/bavix/laravel-settings/v/stable)](https://packagist.org/packages/bavix/laravel-settings)
 * **PHP Version**: 7.2+ 
-* **Laravel Version**: `5.5`, `5.6`, `5.7`, `5.8`, `6.0`
+* **Laravel Version**: `5.5`, `5.6`, `5.7`, `5.8`, `6.x`, `7.x`, `8.x`
 * **[Composer](https://getcomposer.org/):** `composer require bavix/laravel-settings`
 
 ### Usage
